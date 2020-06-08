@@ -25,7 +25,7 @@ def read():
 	try:
 		contact_id = request.args.get('id')
 		if contact_id:
-			contact = todo_ref.document(contact_id).get()
+			contact = contact_ref.document(contact_id).get()
 			return jsonify(contact.to_dict()), 200
 		else:
 			contact_list = [contact.to_dict() for contact in contact_ref.stream()]
